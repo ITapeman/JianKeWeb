@@ -1,0 +1,23 @@
+package com.JianKe.biz;
+
+import java.util.List;
+
+import com.JianKe.pojo.Challenge;
+
+public interface ChallengeBiz {
+	//添加挑战菜谱
+	void addChanllenge(Challenge challenge);
+	
+	//删除挑战过的菜谱
+	void delChanllenge(int cid);
+	
+	//根据店铺id获得挑战过的菜谱
+	List<Challenge> getChallengeBySid(int sid);
+	
+	//根据用户id获得挑战过的菜谱
+	List<Challenge> getChallengeByUid(int uid);
+	//获取一条挑战菜谱
+   Challenge getChallenge(int cid);
+    
+	
+}

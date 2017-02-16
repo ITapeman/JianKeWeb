@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/JKdb</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">ok</property>
+		<property name="format_sql">false</property>
+		<property name="show_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<mapping resource="com/JianKe/pojo/Challenge.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/City.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Comment.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Evaluate.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Goods.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Goods_Category.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Menu_Category.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Menu.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Privilege.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Province.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/Shop.hbm.xml"/>
+		<mapping resource="com/JianKe/pojo/User.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

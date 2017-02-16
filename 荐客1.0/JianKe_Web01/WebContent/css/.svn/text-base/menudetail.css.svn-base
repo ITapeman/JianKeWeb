@@ -1,0 +1,63 @@
+#mymyimg,
+#detail{
+    width:950px;
+    margin:auto;
+    
+}
+#image img{
+	width:550px;
+	padding:2% 0 2% 0;
+}
+#introduce
+{
+	width:600px;
+	letter-spacing:2px;
+	padding-bottom:2%;
+}
+#introduce
+{
+	width:600px;
+	letter-spacing:2px;
+	line-height:20pt;
+}
+#food{
+	width:600px;
+}
+small{
+	font-size:16px;
+	font-wight:20;
+	word-wrap:break-word;
+	line-height:20pt;
+	letter-spacing:2px;
+}
+#step img{
+	width:45%;
+	float:left;
+	margin:0 5% 0 0;
+}
+
+.step1 ,.step2,.step3,.step4,.step5,.step6,.step7,.step8,.step9,.step10
+{
+	height:200px;
+	width:600px;
+}
+
+#step .text{
+	float:left;
+	width:45%;
+	word-wrap:break-word;
+	max-height:200px;
+	padding:3px;
+}
+
+.text .radius{	
+	background-color: #FFFFFF;
+	width:30px;
+	height:30px;
+	border:1px solid red;
+	border-radius: 100px;
+	padding:1px;
+}
+.text .radius h4 {
+	margin:6px 0 0 10px;
+}

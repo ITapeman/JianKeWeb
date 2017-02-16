@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.JianKe.pojo">
+
+	<class name="Goods" table="t_goods">
+		<id name="gid">
+			<generator class="native"/>
+		</id>
+		<property name="gname"/>
+		<property name="price"/>
+		<property name="images"/>
+		<property name="introduce"/>
+		<property name="istesecai"/>
+		<many-to-one name="Shop" column="sid"></many-to-one>
+		<set name="goods_Categories" table="t_goods_goodscategory">
+			<key column="gid"/>
+			<many-to-many class="Goods_Category" column="cid"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="true"/>
+	<constant name="struts.objectFactory" value="spring"/>
+	<constant name="struts.multipart.maxSize" value="1000000000"/>
+	<package name="JianKe" extends="struts-default">
+		 <!--初始化首页推荐信息  -->
+		<action name="index" class="com.JianKe.action.beforeIndexAction" method="initShops"> 
+			<result name="success" type="chain">
+				<param name="actionName">indexmenu</param>
+			</result>
+		</action> 
+		<action name="indexmenu" class="com.JianKe.action.beforeIndexAction" method="initMenus"> 
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		<!-- 登录 -->
+		<action name="login" class="com.JianKe.action.LoginAction" method="logins">
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="psuccess" type="redirect">/PostMenu.jsp</result>
+			<result name="fail">/login.jsp</result>
+		</action>
+		<!-- 注册 -->
+		<action name="regist" class="com.JianKe.action.RegisterAction" method="regists">
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="fail">/register.html</result>
+		</action>
+
+
+		<action name="zhuxiao" class="com.JianKe.action.LoginAction" method="zhuxiao">
+		<result name="zhuxiao" type="redirect">/index.jsp</result>
+		</action>
+		
+		<!-- 食友 -->
+		<action name="friendView" class="com.JianKe.action.FriendAction" method="friendView" >
+		   <result name="success"  type="redirect">/person1.jsp</result>
+		   </action>
+		<!-- 个人菜谱 -->
+		   <action name="peronalView" class="com.JianKe.action.PersonalmenuAction" method="peronalView">
+		   	<result name="success" type="redirect">/person1.jsp</result>
+		   </action> 
+		  <action name="personmeis" class="com.JianKe.action.PersonalmenuAction" method="personmeis">
+		 	 <result name="success2" type="redirect">/personmeishi.jsp</result>
+		  </action>
+		  <!--个人挑战  -->
+		   <action name="perchallengeView" class="com.JianKe.action.PersonchanllgeAction" method="perchallengeView">
+		   <result name="success" type="redirect">personchallenge.jsp </result>
+		   </action>
+		   <!-- 挑战菜谱 -->
+           <action name="changeview" class="com.JianKe.action.PersonchanllgeAction" method="changeview"> 
+           <result name="success2"  type="redirect">personchallview.jsp </result>
+           </action>
+           
+           <!-- 评论 -->
+             <action name="commentDetail" class="com.JianKe.action.commentAction" method="commentDetail"    >            
+             <result name="success" type="redirect">/personchallview.jsp</result>
+             </action>
+           <!-- add comment -->
+           <action name="addch" class="com.JianKe.action.PersonchanllgeAction" method="addch">
+              <result name="success3" type="chain">
+                <param name="actionName">changeview</param>
+              </result>
+           </action>
+           
+		<!-- 店铺首页分页 -->
+		<action name="fenyeshop" class="com.JianKe.action.ShopIndexAction" method="showfenye">
+			<result name="success" type="redirect">/shopindex.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		<!-- 店铺详情分页 -->
+		<action name="fenyesdetil" class="com.JianKe.action.ShopIndexAction" method="getChallenge">
+			<result name="success" type="redirect">/shopindex.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		
+		<!-- 店铺详情页面 -->
+		<action name="shopdetile" class="com.JianKe.action.ShopDetileAction" method="shopdetiles">
+			<result name="success" type="redirect">/shopdetile.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		
+		<!-- 发布菜谱 -->
+		<action name="postmenu" class="com.JianKe.action.PostMenuAction" >
+			<result name="success" type="redirectAction">
+				<param name="actionName">peronalView</param>
+			</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		<!-- 验证是否登录发布菜谱 -->
+		<action name="postmenulog" class="com.JianKe.action.PostMenuAction" method="postmenulog">
+			<result name="success" type="redirect">/PostMenu.jsp</result>
+			<result name="fail">/denglu.jsp</result>
+			<param name="islogin">1</param>
+		</action>
+		
+		<!-- 菜谱首页 -->
+		<action name="menuIndex" class="com.JianKe.action.beforeIndexAction" method="initMenus">
+			<result name="success" type="chain">
+				<param name="actionName">getcategory</param>
+			</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		<action name="getcategory" class="com.JianKe.action.MenuIndexAction" method="initCategory">
+			<result name="success" type="chain">
+				<param name="actionName">showmenu</param>
+			</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		<action name="showmenu" class="com.JianKe.action.MenuIndexAction" method="showmenu">
+			<result name="success" type="redirect">/menu.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		<action name="ajaxmenu" class="com.JianKe.action.MenuIndexAction" method="showmenu">
+			<result name="success" type="redirect">/Ajax.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		<!-- 菜谱详情 -->
+		<action name="getmenubyid" class="com.JianKe.action.MenuDetailAction" method="getMenuByid">
+			<result name="success" type="redirect">/menudetail.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		
+		<!-- 菜谱大全 -->
+		<action name="menulist" class="com.JianKe.action.MenuIndexAction" method="initMenu">
+			<result name="success" type="redirect">/menulist.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		<!-- 菜谱查询 -->
+		<action name="findmenu" class="com.JianKe.action.FindMenuByNameAction" method="findmenu">
+			<result name="success" type="redirect">/NewFile.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		<!-- 找优惠 -->
+		<action name="privilege" class="com.JianKe.action.PrivilegeAction">
+			<result name="success">/zhaoyouhui.jsp</result>
+		</action>
+		
+		<!-- 发送页面 -->
+		<action name="fasong" class="com.JianKe.action.FasongAction">
+			<result name="success">/fasong.jsp</result>
+		</action>
+		
+		<!-- 按照特定条件查找优惠 -->
+		<action name="privilege_type" class="com.JianKe.action.Privilege_typeAction">
+			<result name="success">/zhaoyouhui.jsp</result>
+		</action>
+		
+		
+		<!-- 后台登录 -->
+		<action name="htlogin" class="com.JianKe.action.HtLoginAction" method="htlogin">
+			<result name="success" type="redirect">/htindex.jsp</result>
+			<result name="fail">/htlogin.jsp</result>
+		</action>
+		
+		<!-- 后台修改店铺推荐 -->
+		<action name="htgetshops" class="com.JianKe.action.ShopIndexAction" >
+			<result name="success" type="redirect">/htshoprecommend.jsp</result>
+		</action>
+		
+		<!-- 后台密码修改 -->
+		<action name="htxgpwd" class="com.JianKe.action.HtXgPwdAction" method="htxgpwd">
+			<result name="success" type="redirect">/htinfo.jsp</result>
+			<result name="fail" type="redirect">/htpassword.jsp</result>
+		</action>
+		<!-- 修改店铺之前显示店铺之前信息 -->
+		<action name="htbeforeadd" class="com.JianKe.action.HtBeforeAddAction">
+			<result name="success" type="redirect">/htshopinfo.jsp</result>
+		</action> 
+		
+		<!-- 后台店铺推荐修改 -->
+		<action name="htchangeshop" class="com.JianKe.action.ShopDetileAction" method="htchangeshop">
+			<result name="success" type="redirect">/htshoprecommend.jsp</result>
+		</action>
+		<!-- 后台删除店铺 -->
+		<action name="htdelshop" class="com.JianKe.action.ShopIndexAction" method="htdelshop">
+			<result name="success">/htshoprecommend.jsp</result>
+		</action>
+		
+	 	<!-- 后台菜谱推荐 -->
+		<action name="htgetmenus" class="com.JianKe.action.MenuIndexAction" method="htgetmenus">
+			<result name="success">/htmenurecommend.jsp</result>
+		</action> 
+		
+		<!-- 后台按菜谱分类分页 -->
+		<action name="htchoosemenu" class="com.JianKe.action.MenuIndexAction" method="htgetmenus">
+			<result name="success">/htmenurecommend.jsp</result>
+		</action>
+		
+		<!-- 后台修改menu前显示之前信息 -->
+		<action name="htbeforupmenu" class="com.JianKe.action.HtBeforeUpMenuAction" method="htbeforupmenu">
+			<result name="success">/htmenuinfo.jsp</result>
+		</action>
+		
+		<!-- 后台更新（更改）menu -->
+		<action name="htupdatemenu" class="com.JianKe.action.HtUpdateMenuAction" method="htupdatemenu">
+			<result name="success" type="chain">
+				<param name="actionName">htgetmenus</param>
+			</result>
+		</action>
+		<!-- 后台删除菜单menu -->
+		<action name="htdelmenu" class="com.JianKe.action.HtUpdateMenuAction" method="htdelmenu">
+			<result name="success" type="redirectAction">
+				<param name="actionName">htgetmenus</param>
+			</result>
+		</action>
+		
+		<!-- 后台添加店铺 -->
+		<action name="htaddshop" class="com.JianKe.action.HtAddShopAction" method="htaddshop">
+			<result name="success" type="chain">
+				<param name="actionName">htgetshops</param>
+			</result>
+		</action>
+		
+		<!-- 优惠后台 -->
+		  <action name="pall" class="com.JianKe.action.htPrivilege" method="pall">
+		  <result name="success">/htprov.jsp</result>
+		  </action>
+		  
+		  <action name="delpro" class="com.JianKe.action.htPrivilege" method="delpro">
+		  <result name="delpro" type="chain">
+		    <param name="actionName">pall</param>
+		  </result>
+		  </action>
+		
+		<action name="updatepro" class="com.JianKe.action.htPrivilege" method="updatepro">
+		 <result name="updatepro" type="chain">
+		 <param name="actionName">pall</param>
+		 </result>
+		</action>
+		
+		
+		<action name="addpro" class="com.JianKe.action.htPrivilege" method="addpro">
+		<result name="addpro" type="chain">
+		<param name="actionName">pall</param>
+		</result>
+		</action>
+		
+	</package>
+</struts>

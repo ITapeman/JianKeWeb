@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.JianKe.pojo">
+
+	<class name="Menu" table="t_menu">
+		<id name="mid">
+			<generator class="native"/>
+		</id>
+		<property name="mname"/>
+		<property name="introduce"/>
+		<property name="food"/>
+		<property name="mstep1"/>
+		<property name="mimage1"/>
+		<property name="mstep2"/>
+		<property name="mimage2"/>
+		<property name="mstep3"/>
+		<property name="mimage3"/>
+		<property name="mstep4"/>
+		<property name="mimage4"/>
+		<property name="mstep5"/>
+		<property name="mimage5"/>
+		<property name="mstep6"/>
+		<property name="mimage6"/>
+		<property name="mstep7"/>
+		<property name="mimage7"/>
+		<property name="mstep8"/>
+		<property name="mimage8"/>
+		<property name="mstep9"/>
+		<property name="mimage9"/>
+		<property name="mstep10"/>
+		<property name="mimage10"/>
+		<property name="ismrecommend"/>
+		<many-to-one name="Menu_Category" column="menu_cid"></many-to-one>
+		<many-to-one name="User" column="uid"></many-to-one>
+		<set name="cUsers" table="t_collection">
+			<key column="mid"/>
+			<many-to-many class="User" column="uid"/>
+		</set>
+		
+	</class>
+	
+</hibernate-mapping>

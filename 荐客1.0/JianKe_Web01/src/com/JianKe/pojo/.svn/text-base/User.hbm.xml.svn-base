@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.JianKe.pojo">
+
+	<class name="User" table="t_user">
+		<id name="uid">
+			<generator class="native"/>
+		</id>
+		<property name="uname"/>
+		<property name="pwd"/>
+		<property name="mail"/>
+		<property name="nickname"/>
+		<property name="headicon"/>
+		<set name="challenges">
+			<key column="uid"/>
+			<one-to-many class="Challenge"/>
+		</set>
+		<set name="menus">
+			<key column="uid"/>
+			<one-to-many class="Menu"/>
+		</set>
+		
+		<set name="comments">
+			<key column="uid"/>
+			<one-to-many class="Comment"/>
+		</set>
+		<set name="evaluates">
+			<key column="uid"/>
+			<one-to-many class="Evaluate"/>
+		</set>
+		
+		<set name="friends" table="t_user_friends">
+			<key column="uid"/>
+			<many-to-many class="User" column="fid"/>
+		</set>
+		
+		<set name="cMenus" table="t_collection">
+			<key column="uid"/>
+			<many-to-many class="Menu" column="mid"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+package com.JianKe.biz.impl;
+
+import java.util.List;
+
+import com.JianKe.biz.CityBiz;
+
+import com.JianKe.pojo.City;
+
+public class CityBizImpl implements CityBiz{
+
+	public List<City> getCitiesList(int pid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+}
+

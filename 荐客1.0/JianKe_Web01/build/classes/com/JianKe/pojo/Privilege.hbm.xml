@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.JianKe.pojo">
+
+	<class name="Privilege" table="t_privilege">
+		<id name="pid">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="introduce"/>
+		<property name="date"/>
+		<property name="images"/>
+		<property name="type"/>
+		<property name="pri_img"/>
+		<property name="isrecommend"></property>
+		<many-to-one name="Shop" column="sid"></many-to-one>
+	</class>
+	
+</hibernate-mapping>

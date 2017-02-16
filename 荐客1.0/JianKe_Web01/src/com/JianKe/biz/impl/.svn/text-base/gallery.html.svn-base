@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>404</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Gourmet Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap -->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' media="all" />
+<!-- //bootstrap -->
+<!-- Custom Theme files -->
+<link href="css/styles.css" rel='stylesheet' type='text/css' media="all" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<!--start-smoth-scrolling-->
+<!--webfonts-->
+	<link href='http://fonts.useso.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.useso.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+<!--webfonts-->	
+<link href="css/component.css" rel="stylesheet" type="text/css"  />
+</head>
+<body class="cbp-spmenu-push">
+
+
+	<!--/header-->
+	<div class="gallery">
+		<div class="container">
+			 <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+			<div class="slider">
+					 <div class="works main">						  
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f1.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span><span class="rollover2"> </span></a> </p></div>     
+								<img src="images/f1.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f2.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span><span class="rollover2"> </span></a> </p></div>     
+								<img src="images/f2.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f3.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+							    <img src="images/f3.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f4.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f4.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f2.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f2.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f3.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f3.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f4.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f4.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f1.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f1.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f3.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f3.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f4.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f4.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f1.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f1.jpg" alt="">
+						  </div>
+						  <div class="gallery-box">
+								<div id="nivo-lightbox-demo"> <p> <a href="images/f2.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>     
+								<img src="images/f2.jpg" alt="">
+						  </div>
+						 <div class="clearfix"></div>
+					  </div>	
+				   <script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
+				<script type="text/javascript">
+				$(document).ready(function(){
+				    $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
+				});
+				</script>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

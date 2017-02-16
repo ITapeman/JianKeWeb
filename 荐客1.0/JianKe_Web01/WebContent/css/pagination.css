@@ -1,0 +1,95 @@
+@charset "utf-8";    
+#Searchresult{width:100%;height:100%;  background:#f0f3f9;} 
+
+
+#page{text-align: center;}
+.pagination a {
+    text-decoration: none;
+	border: 1px solid #AAE;
+	color: #15B;
+}
+a{color:#34538b;}
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 0.1em 0.4em;
+    margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.pagination .current {
+    background: #26B;
+    color: #fff;
+	border: 1px solid #AAE;
+}
+
+.pagination .current.prev, .pagination .current.next{
+	color:#999;
+	border-color:#999;
+	background:#fff;
+}
+
+
+
+
+/*
+
+struts2单独使用时action由struts2自己负责创建；与spring集成时，action实例由spring负责创建。
+这导致在两种情况下struts.xml配置文件的略微差异。
+ 
+假如：LoginAction在包cn.edu.jlu.cs.action中。
+ 
+1. struts2单独使用时，action的class属性为LoginAction的全路径名，如下：
+...
+<action name="login" class="cn.edu.jlu.cs.action.LoginAction">
+<result name="studentSuccess">
+/student/studentindex.jsp
+</result>
+...
+2. struts2与spring集成时，class属性是spring的applicationContext.xml中配置的bean的id属性值。
+---------------------------------------------------------------------------------------
+//struts.xml
+...
+<action name="login" class="LoginAction">
+<result name="studentSuccess">
+/student/studentindex.jsp
+</result>
+...
+----------------------------------------------------------------------------------------
+//applicationContext.xml
+...
+<bean id="LoginAction" class="cn.edu.jlu.cs.action.LoginAction" />
+...
+----------------------------------------------------------------------------------------
+struts2-spring-plugin-2.1.6.jar这个插件在产生action的时候，会自动的按照名字把action的
+属性注入进去，
+即使不在spring配置文件中为相关的action(bean)注入属性或者在action类中用注解注入，
+它也会按照action类中属性的名字从当前容器（？？Spring）中找有没有这个名字的bean
+并注入进来，或者显示的给定一个名字注入。
+所以action的id(spring配置文件中的)不要和它类里边的变量名相同
+如果在struts.xml文件中配置action的class是指向action的实际类，那么action的产生由
+struts控制，
+此时action类中的相关变量会按照名称从容器中注入一个相应的bean，如果找不到对应名
+称的bean，一旦调用这个action就会出错。
+但是如果此时为变量加上一个@Resource注解，struts容器产生过action后就会从Spring容器
+中找相应的bean注入。
+如果class指向的是一个伪控制器(对应spring配置文件中action的bean)，那么action的产生由
+spring控制。
+此时action类中的相关变量··必须··用注解@Resource或者xml的方式自定义注入相应的bean，
+不象之前会按照名字从spring容器中自动查找注入bean，否则程序运行出错。
+  
+更贴切点说应该是有struts-spring的插件来控制和spring容器控制，有插件来控制，则Action
+的实例由插件来产生，
+而启动spring容器的自动装配功能，将所需要的业务组件自动装配到Action实例中。该策略中，
+spring只负责管理依赖关系。
+优点：配置简单。
+缺点：1、Action与业务组件耦合度降到了代码层次，要求Action中的属性名要和配置文件中业务组件的
+id保持一致，耦合度高。
+2、由spring自动装配，依赖关系不明了，可读性差。 第二种，由spring容器控制，Action配看做一个普
+通的bean实例，需改变scope的默认值。struts.xml中Action的class属性对应spring容器中一个Action实
+例的id。
+优点：实现了高度的解耦。
+缺点：1、配置文件冗余、臃肿。不仅需要在struts.xml中配置Action的信息还需要在spring的配置文件
+中配置个Action的信息
+
+
+*/

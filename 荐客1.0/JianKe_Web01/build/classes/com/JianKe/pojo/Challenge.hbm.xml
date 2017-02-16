@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.JianKe.pojo">
+
+	<class name="Challenge" table="t_challenge">
+		<id name="cid">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="step1"/>
+		<property name="image1"/>
+		<property name="step2"/>
+		<property name="image2"/>
+		<property name="step3"/>
+		<property name="image3"/>
+		<property name="step4"/>
+		<property name="image4"/>
+		<property name="step5"/>
+		<property name="image5"/>
+		<property name="step6"/>
+		<property name="image6"/>
+		<property name="step7"/>
+		<property name="image7"/>
+		<property name="step8"/>
+		<property name="image8"/>
+		<property name="step9"/>
+		<property name="image9"/>
+		<property name="step10"/>
+		<property name="image10"/>
+		<property name="nickname"/>
+		<property name="date"/>
+		
+		<set name="comments" >
+		<key column="cid"></key>
+			<one-to-many class="Comment"/>
+		</set>
+		<many-to-one name="Shop" column="sid"/>
+		<many-to-one name="User" column="uid"/>
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,151 @@
+#div_all{
+	width:100%;
+	background-color:buttonface
+}
+div{
+	position:relative;
+	float:left;
+}
+#div_body{
+	width:60%;
+	margin-left:20%;
+}
+#div_z1{
+	width:100%;
+	height:10%;
+	text-align: center;
+	margin-top:3%;
+}
+#div_z2{
+	width:100%;
+	height:80%;
+	background-color:white;
+}
+#div_z3{
+	width:100%;
+	height:10%;
+	margin-top: 3%;
+	text-align: center;
+}
+#div_z4{
+	width:100%;
+	background-color:white;
+}
+#div_z5{
+	width:100%;
+	height:10%;
+	margin-top:3%;
+	text-align: center;
+}
+#div_cpbz{
+	width:60%;
+	background-color:white;
+	margin-left: 20%;
+}
+#div_bottom{
+	width:100%;
+	height:5%;
+	background-color:black;
+}
+#div_z2_top{
+	width:100%;
+	height:10%;
+	text-align: right;
+	margin-top:2%;
+}
+#div_z2_center{
+	width:100%;
+	height:20%;
+}
+#div_z2_bottom{
+	width:100%;
+	height: 60%;
+	
+}
+#div_z2_center_up{
+	width:100%;
+	height:50%;
+}
+#div_z2_center_down{
+	width:100%;
+	height:50%;
+}
+#div_z2_bottom_left{
+	width:50%;
+	height:100%;
+}
+#div_z2_bottom_right{
+	width:50%;
+	height:100%;
+}
+#div_z2_bottom_left_up{
+	width:100%;
+	height:90%;
+	
+}
+#div_z2_bottom_left_down{
+	width:100%;
+	height:10%;
+}
+.fileinput-button {
+    		position: relative;
+    		display: inline-block;
+		}
+.fileinput-button input{
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+.fileinput-button {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+#div_z4_zhuliao{
+	width:100%;
+	height:10%;
+	margin-top: 2%;
+}
+#div_z4_zhuliaodetil{
+	width:100%;
+	margin-left: 10%;
+}
+#depends{
+	width: 100%;
+}
+#div_z4_fuliao{
+	width:100%;
+	height:10%;
+	margin-top: 5%;
+}
+#div_z4_fuliaodetil{
+	width:100%;
+	margin-left: 10%;
+}
+#div_cpbz_m1{
+	width:100%;
+	height:30%;
+}
+#div_cpbz_m1_left{
+	width:20%;
+	height:100%;
+}
+#div_cpbz_m1_center{
+	width:20%;
+	height:100%;
+}
+#div_cpbz_m1_right{
+	width:60%;
+	height:100%;
+	background:white;
+}
+
+
+
+
+
+
+
+
+
+

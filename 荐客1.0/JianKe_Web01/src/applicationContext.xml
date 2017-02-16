@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+			default-autowire="byType" >
+
+	<!-- 1.配置sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+	</bean>
+
+	<!-- 2.配置TransactionManager -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"/>
+
+	<!-- 增强（事务策略） -->
+	<tx:advice id="tx_advice">
+		<tx:attributes>
+			<tx:method name="login" read-only="true"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="tx_pc" expression="execution(* com.JianKe.biz.impl.*.*(..))"/>
+		<aop:advisor advice-ref="tx_advice" pointcut-ref="tx_pc"/>
+	</aop:config>
+	
+	<!-- 对DAO进行管理 -->
+	<bean id="userDao" class="com.JianKe.dao.impl.UserDAOImpl"></bean>
+    
+    <!-- <bean id="challengeDAO" class="com.JianKe.dao.impl.ChallengeDAOImpl"> </bean> -->
+	<bean class="com.JianKe.dao.impl.ShopDAOImpl" id="shopDao"/>
+    <bean class="com.JianKe.dao.impl.CityDAOImpl" id="cityDao"/>
+    <bean id="menu_CategoryDAO" class="com.JianKe.dao.impl.Menu_CategoryDAOImpl"></bean>
+    <bean id="commentDAO" class="com.JianKe.dao.impl.CommentDAOImpl"></bean>
+	<bean id="goodsDao" class="com.JianKe.dao.impl.GoodsDAOImpl"></bean>	
+	<bean id="evaluateDao" class="com.JianKe.dao.impl.EvaluateDAOImpl"></bean>
+	<bean id="menuDao" class="com.JianKe.dao.impl.MenuDAOImpl"></bean>
+	<bean id="privilegeDao" class="com.JianKe.dao.impl.PrivilegeDAOImpl"></bean>
+	
+	<bean id="challengeDao" class="com.JianKe.dao.impl.ChallengeDAOImpl"></bean>
+	<bean id="htUserDao" class="com.JianKe.dao.impl.HtUserDAOImpl"></bean>
+	
+
+	<!-- 对Biz进行管理 -->
+	<bean id="userBiz" class="com.JianKe.biz.impl.UserBizImpl"></bean>
+	<bean id="menuBiz" class="com.JianKe.biz.impl.MenuBizImpl"></bean>
+	<bean id="challengeBiz" class="com.JianKe.biz.impl.ChallengeBizImpl"></bean>
+	<bean class="com.JianKe.biz.impl.ShopBizImpl" id="shopBiz"/>
+    <bean class="com.JianKe.biz.impl.CityBizImpl" id="cityBiz"/>
+    <bean id="menu_CategoryBiz" class="com.JianKe.biz.impl.Menu_CategoryBizImpl"></bean>
+	<bean id="commentBiz" class="com.JianKe.biz.impl.CommentBizImpl"></bean>
+	<bean id="goodsBiz" class="com.JianKe.biz.impl.GoodsBizImpl"></bean>
+	<bean id="evaluateBiz" class="com.JianKe.biz.impl.EvaluateBizImpl"></bean>
+	<bean id="privilegeBiz" class="com.JianKe.biz.impl.PrivilegeBizImpl"></bean>
+	
+	<bean id="htUserBiz" class="com.JianKe.biz.impl.HtUserBizImpl"></bean>
+	
+
+	<!-- 对Action进行管理 -->
+	<bean id="login" class="com.JianKe.action.LoginAction"></bean>
+	<bean id="regist" class="com.JianKe.action.RegisterAction"></bean>
+    <bean id="zhuxiao" class="com.JianKe.action.LoginAction"></bean>
+	<bean id="friendView"  class="com.JianKe.action.FriendAction"></bean>	
+	<bean id="peronalView" class="com.JianKe.action.PersonalmenuAction"></bean>
+	<bean id="personmeis" class="com.JianKe.action.PersonalmenuAction"/>
+	<bean id="perchallengeView" class="com.JianKe.action.PersonchanllgeAction"/>
+    <bean class="com.JianKe.action.ShopIndexAction" id="searchbycity"/>
+    <bean class="com.JianKe.action.ShopIndexAction" id="searchbyshi"/>
+    <bean id="cgory" class="com.JianKe.action.personmeungateAction" ></bean>
+    <bean id="commentDetail" class="com.JianKe.action.commentAction"></bean>
+    <bean id="changeview" class="com.JianKe.action.PersonchanllgeAction"></bean>
+    <!-- <bean id="guanli" class="com.JianKe.action.personguanliAction"></bean> -->
+
+	<bean id="shopdetile" class="com.JianKe.action.ShopDetileAction"></bean>
+	<bean id="postmenu" class="com.JianKe.action.PostMenuAction"></bean>
+	<bean id="fenyeshop" class="com.JianKe.action.ShopIndexAction"></bean>
+	<bean id="fenyesdetil" class="com.JianKe.action.ShopIndexAction"></bean>
+	<bean id="index" class="com.JianKe.action.beforeIndexAction"></bean>
+	<bean id="indexmenu" class="com.JianKe.action.beforeIndexAction"></bean>
+	<bean id="getmenubyid" class="com.JianKe.action.MenuDetailAction"></bean>
+	<bean id="menuIndex" class="com.JianKe.action.beforeIndexAction"></bean>
+	<bean id="ajaxmenu" class="com.JianKe.action.MenuIndexAction"></bean>
+	<bean id="showmenu" class="com.JianKe.action.MenuIndexAction"></bean>
+	<bean id="privilege_type" class="com.JianKe.action.Privilege_typeAction"></bean>
+	<bean id="privilege" class="com.JianKe.action.PrivilegeAction"></bean>
+	<bean id="fasong" class="com.JianKe.action.FasongAction"></bean>
+	<bean id="menulist" class="com.JianKe.action.MenuIndexAction"></bean>
+	<bean id="findmenu" class="com.JianKe.action.FindMenuAction"></bean>
+	<bean id="postchallenge" class="com.JianKe.action.PostChallengeAction"></bean>
+	<bean id="savepost" class="com.JianKe.action.SavePostAction"></bean>
+	
+	<bean id="htlogin" class="com.JianKe.action.HtLoginAction"></bean>
+	<bean id="htgetshops" class="com.JianKe.action.ShopIndexAction"></bean>
+	<bean id="htxgpwd" class="com.JianKe.action.HtXgPwdAction"></bean>
+	<bean id="htchangeshop" class="com.JianKe.action.ShopIndexAction"></bean>
+	<bean id="htbeforeadd" class="com.JianKe.action.HtBeforeAddAction"></bean>
+	<bean id="htdelshop" class="com.JianKe.action.ShopIndexAction"></bean>
+	<bean id="htgetmenus" class="com.JianKe.action.MenuIndexAction"></bean> 
+    <bean id="htchoosemenu" class="com.JianKe.action.MenuIndexAction"></bean> 
+	<bean id="htbeforupmenu" class="com.JianKe.action.HtBeforeUpMenuAction"></bean>
+	<bean id="htupdatemenu" class="com.JianKe.action.HtBeforeUpMenuAction"></bean>
+	 
+	<bean id="delpro" class="com.JianKe.action.htPrivilege"></bean>  
+    <bean id="updatepro" class="com.JianKe.action.htPrivilege"></bean>
+    <bean id="addpro" class="com.JianKe.action.htPrivilege"></bean>
+	
+</beans>

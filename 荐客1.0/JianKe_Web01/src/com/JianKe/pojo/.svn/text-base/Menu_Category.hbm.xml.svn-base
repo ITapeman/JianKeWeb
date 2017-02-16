@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.JianKe.pojo">
+
+	<class name="Menu_Category" table="t_menu_category">
+		<id name="menu_cid">
+			<generator class="native"/>
+		</id>
+		<property name="cname"/>
+		<property name="image"/>
+		<set name="menus">
+			<key column="menu_cid"/>
+			<one-to-many class="Menu"/>
+		</set>
+		
+		
+	</class>
+	
+</hibernate-mapping>

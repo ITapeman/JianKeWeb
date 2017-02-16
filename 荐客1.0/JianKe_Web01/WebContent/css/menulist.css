@@ -1,0 +1,50 @@
+body{
+   
+
+}
+#navcontainer
+{
+
+    font: 16px Verdana, sans-serif;
+    padding: 10% 0 0 12% ;
+    list-style-type: none;
+    position: absolute;
+    top:11%;
+    left:20%;
+}
+
+#navcontainer #navlist li a{
+    background: rgba(0,0,0,0);
+
+}
+
+#navlist li {  float: left;   width: auto;  display: block;  }
+#navlist li a, #navlist li a:link
+{
+    background: #fff;
+    color: #555;
+    text-decoration: none;
+    padding: 3px 5px 3px 5px;
+    display: block;
+}
+#navlist li a:hover
+{
+    color: #ff0618;
+    border-bottom: 3px solid #ff0618;
+    cursor: pointer;
+    background: #FFFFFF;
+}
+
+.carousel .container{position: relative; z-index: 9;}
+.carousel .item{width: 80%; margin-left:10%; height: 0;  padding-bottom: 20%;  overflow: hidden;}
+.carousel img{position: absolute; top: -131px; left: 0; width: 100%; }
+.carousel-caption{background-color: transparent; position: static; padding:8% 0 0 8%}
+
+
+
+
+
+
+
+
+

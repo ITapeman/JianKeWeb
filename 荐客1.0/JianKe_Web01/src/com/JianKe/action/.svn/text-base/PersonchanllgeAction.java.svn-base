@@ -1,0 +1,128 @@
+package com.JianKe.action;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import com.JianKe.biz.ChallengeBiz;
+import com.JianKe.biz.CommentBiz;
+import com.JianKe.dao.CommentDAO;
+import com.JianKe.pojo.Challenge;
+import com.JianKe.pojo.Comment;
+import com.JianKe.pojo.User;
+import com.opensymphony.xwork2.ActionContext;
+
+public class PersonchanllgeAction {
+private int cid;
+private int uid;
+private String content;
+private ChallengeBiz challengeBiz;
+
+private CommentBiz commentBiz;
+private CommentDAO commentDAO;
+
+
+public int getUid() {
+	return uid;
+}
+public void setUid(int uid) {
+	this.uid = uid;
+}
+public String getContent() {
+	return content;
+}
+public void setContent(String content) {
+	this.content = content;
+}
+public CommentDAO getCommentDAO() {
+	return commentDAO;
+}
+public void setCommentDAO(CommentDAO commentDAO) {
+	this.commentDAO = commentDAO;
+}
+public CommentBiz getCommentBiz() {
+	return commentBiz;
+}
+public void setCommentBiz(CommentBiz commentBiz) {
+	this.commentBiz = commentBiz;
+}
+public int getCid() {
+	return cid;
+}
+public void setCid(int cid) {
+	this.cid = cid;
+}
+public String  perchallengeView(){
+	 User user = (User)ActionContext.getContext().getSession().get("oneuser");
+	 uid = user.getUid();
+	/* if(uid == )
+	 User currUser = (User) ActionContext.getContext().getSession().get("CurrentUser");
+	 uid =currUser.getUid();*/
+	
+	//获取 我 的挑战菜谱
+	 System.out.println("挑战的id"+uid);
+	
+	List<Challenge> challengeList = challengeBiz.getChallengeByUid(uid);
+	
+	ActionContext.getContext().getSession().put("challengeList", challengeList);
+  
+	return "success";
+}
+
+public String addch(){
+	
+	//zengjia
+	Map<String, Object>session =ActionContext.getContext().getSession();	 
+	Date date=new Date();	 
+	int userid=((User)session.get("CurrentUser")).getUid();
+	Comment comment2 = new Comment( content, date, new Challenge(cid),new User(userid));
+	
+	commentBiz.addComment(comment2);
+	return "success3";
+}
+
+public String changeview(){
+
+	
+	//显示评论
+	int chid = getCid();
+	System.out.println(chid);
+	List<Comment> comment = commentBiz.getCommentByCid(chid);
+	for(Comment cc : comment){
+		System.out.println("懒加载"+cc.getUser().getNickname());
+	}
+	if(comment == null || "".equals(comment)){
+		System.out.println("comment 位空");
+	}else{
+		System.out.println("---"+comment);
+	}
+	ActionContext.getContext().getSession().put("comment", comment);
+	
+	
+	
+	
+	//挑战菜谱
+	 Challenge challenge =challengeBiz.getChallenge(cid);
+	 System.out.println(challenge);
+	 ActionContext.getContext().getSession().put("challenge", challenge);
+	 
+	 
+	 return "success2";
+	
+}
+
+
+	
+
+
+
+
+public ChallengeBiz getChallengeBiz() {
+	return challengeBiz;
+}
+public void setChallengeBiz(ChallengeBiz challengeBiz) {
+	this.challengeBiz = challengeBiz;
+}
+
+
+}

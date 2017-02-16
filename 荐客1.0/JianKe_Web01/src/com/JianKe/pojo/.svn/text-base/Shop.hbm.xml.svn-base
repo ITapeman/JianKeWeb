@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.JianKe.pojo">
+
+	<class name="Shop" table="t_shop">
+		<id name="sid">
+			<generator class="native"/>
+		</id>
+		<property name="sname"/>
+		<property name="address"/>
+		<property name="tel"/>
+		<property name="businesshour"/>
+		<property name="introduce"/>
+		<property name="image"/>
+		<property name="eveprice"/>
+		<property name="isrecommend"/>
+		<many-to-one name="City" column="cid" ></many-to-one>
+		<set name="challenges">
+			<key column="sid"/>
+			<one-to-many class="Challenge"/>
+		</set>
+		<!-- <set name="privileges">
+			<key column="sid"/>
+			<one-to-many class="Privilege"/>
+		</set>  -->
+		<set name="goods">
+			<key column="sid"/>
+			<one-to-many class="Goods"/>
+		</set>
+		<set name="evaluates">
+			<key column="sid"/>
+			<one-to-many class="Evaluate"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>

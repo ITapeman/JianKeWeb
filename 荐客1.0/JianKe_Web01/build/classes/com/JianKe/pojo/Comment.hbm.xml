@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.JianKe.pojo">
+
+	<class name="Comment" table="t_comment">
+		<id name="coid">
+			<generator class="native"/>
+		</id>
+		<property name="content"/>
+		<property name="date"/>
+	
+		<many-to-one name="Challenge" column="cid"/>
+		<many-to-one name="User" column="uid"/>
+	</class>
+	
+</hibernate-mapping>

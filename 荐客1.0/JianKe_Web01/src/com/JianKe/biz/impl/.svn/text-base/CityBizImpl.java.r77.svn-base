@@ -1,0 +1,36 @@
+package com.JianKe.biz.impl;
+
+import java.util.List;
+
+import com.JianKe.biz.CityBiz;
+import com.JianKe.dao.ProvinceDAO;
+import com.JianKe.dao.ShopDAO;
+import com.JianKe.hibernate.util.ListUtil;
+import com.JianKe.pojo.City;
+import com.JianKe.pojo.Province;
+import com.JianKe.pojo.Shop;
+
+public class CityBizImpl implements CityBiz{
+   private ProvinceDAO provinceDAO=null;
+
+  
+
+	public ProvinceDAO getProvinceDAO() {
+	return provinceDAO;
+}
+
+    public void setProvinceDAO(ProvinceDAO provinceDAO) {
+	this.provinceDAO = provinceDAO;
+}
+
+	public List<City> getCitiesList(int pid) {
+		// TODO Auto-generated method stub
+	
+		return ListUtil.getInstance().setToList(provinceDAO.get(pid).getCities());
+		
+	}
+
+
+
+
+}

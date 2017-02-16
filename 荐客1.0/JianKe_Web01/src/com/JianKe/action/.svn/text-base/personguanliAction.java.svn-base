@@ -1,0 +1,74 @@
+package com.JianKe.action;
+
+import java.util.Map;
+
+import com.JianKe.biz.UserBiz;
+import com.JianKe.pojo.User;
+import com.opensymphony.xwork2.ActionContext;
+
+public class personguanliAction {
+    private String uname;
+    private String pwd;
+    private String mail;
+    private String nickname;
+    private int uid;
+    
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+
+
+	private UserBiz userBiz;
+	
+	public UserBiz getUserBiz() {
+		return userBiz;
+	}
+
+	public void setUserBiz(UserBiz userBiz) {
+		this.userBiz = userBiz;
+	}
+
+	public String guanli(){
+		
+		return "";
+	}
+	
+}

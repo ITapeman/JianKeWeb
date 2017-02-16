@@ -1,0 +1,118 @@
+package com.JianKe.action;
+
+import java.util.List;
+import java.util.Set;
+
+import com.JianKe.biz.MenuBiz;
+import com.JianKe.biz.UserBiz;
+import com.JianKe.pojo.Menu;
+import com.JianKe.pojo.User;
+import com.opensymphony.xwork2.ActionContext;
+
+public class PersonalmenuAction {
+private int mid;
+private UserBiz userBiz;
+
+public int getMid() {
+	return mid;
+}
+public void setMid(int mid) {
+	this.mid = mid;
+}
+
+
+public UserBiz getUserBiz() {
+	return userBiz;
+}
+public void setUserBiz(UserBiz userBiz) {
+	this.userBiz = userBiz;
+}
+
+
+private MenuBiz menuBiz=null;
+
+
+public String peronalView(){
+	if(mid == 0){
+		mid = (Integer) ActionContext.getContext().getSession().get("mid");
+		if(mid == 0){
+			User currUser = (User)ActionContext.getContext().getSession().get("CurrentUser");
+			mid= currUser.getUid();
+		}
+	}else {
+		mid=this.mid;
+		ActionContext.getContext().getSession().put("mid", mid);
+	}
+	
+	/*System.out.println("uid is : "+uid);*/
+	
+	User oneuser = userBiz.getUserById(mid);
+	Set<User> uii = oneuser.getFriends();
+	for(User ui : uii){
+		System.out.println("懒加载"+ui.getNickname());
+	}
+	ActionContext.getContext().getSession().put("oneuser", oneuser);
+	//获取我的菜谱
+	
+	List<Menu> menuList = menuBiz.getIssue(mid);
+
+	ActionContext.getContext().getSession().put("menuList", menuList);
+     
+	//获取我挑战的菜谱
+
+	return "success";
+}
+public String personmeis(){
+	 
+	Menu menu  = menuBiz.getMenu(mid);
+    System.out.println("mid is -----------------: "+mid);
+    System.out.println(menu);
+    ActionContext.getContext().getSession().put("menu", menu);
+	return "success2";
+}
+
+/*private String mname;
+private String introduce;
+private String food;
+private String mstep1;
+private String mimage1;
+private String mstep2;
+private String mimage2;
+private String mstep3;
+private String mimage3;
+private String mstep4;
+private String mimage4;
+private String mstep5;
+private String mimage5;
+private String mstep6;
+private String mimage6;
+private String mstep7;
+private String mimage7;
+private String mstep8;
+private String mimage8;
+private String mstep9;
+private String mimage9;
+private String mstep10;
+private String mimage10;*/
+/*public String addmenu{
+	Map<String, Object> session =ActionContext.getContext().getSession();
+	int userid=((User)session.get("CurrentUser")).getUid();
+	int menuid=((Menu)session.get("MenuList")).getMid();
+	int collectionid=((Collection)session.get("collectionlist")).getCid();
+	Menu menu =new Menu( mname, introduce, food, mstep1, mimage1, mstep2, mimage2, mstep3, mimage3, mstep4, mimage4, mstep5, mimage5, mstep6, mimage6, mstep7, mimage7, mstep8, mimage8, mstep9, mimage9, mstep10, mimage10, new Menu_Category(menuid), new User(userid),new Collection(collectionid));
+     
+	session.put("menuluru", menuBiz.get);
+}
+*/
+
+public MenuBiz getMenuBiz() {
+	return menuBiz;
+}
+
+
+public void setMenuBiz(MenuBiz menuBiz) {
+	this.menuBiz = menuBiz;
+}
+
+	
+}

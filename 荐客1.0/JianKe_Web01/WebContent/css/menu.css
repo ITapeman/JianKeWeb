@@ -1,0 +1,167 @@
+ body{
+    background: #FFFFFF;
+
+} 
+
+/* #container{
+	width:80%;
+	background:#F7F7F7;
+	margin-left:10%;
+} */
+hr{
+	width:900px;
+	margin:0 auto;
+	background-color:#ff0618;
+	
+}
+
+.category {
+    text-align:center;	
+    height:100px;
+    width:900px;
+    margin:auto;
+}
+
+
+.nav .c_img img{
+	width:45px;
+	height:45px;
+		
+}
+.nav .c_img p{
+	text-align:center;
+	padding-top:3px;
+}
+
+
+
+.nav li a:hover
+{
+    color: #ff0618;
+    border-bottom: 3px solid #ff0618;
+    cursor: pointer;
+    background: #FFFFFF;
+}
+
+
+
+
+/*menudetile*/
+
+#step img{
+    width:40%;
+    padding-right:20%;
+    float:left;
+    margin-bottom:5%;
+}
+#step{
+	padding-top:10%;
+}
+
+#myimg{
+	padding-bottom:1%;
+	width:100%;
+	
+	}
+
+
+#step .text{
+    float:left;
+    margin:5% auto;
+    height:30%;
+    width:40%;
+    
+}
+#detail{
+	width:80%;
+}
+
+#detial #food{
+	height:10%;
+}
+
+#detail h1{
+	padding:2%;
+}
+#detail #introduce{
+	
+	font-size:16px;
+	margin:5% 0 5% 0;
+}
+
+
+
+/*main*/	
+#div_menus #mydetail{
+	height:100%;
+}
+
+#flexiselDemo{
+    display: none;
+}
+.nbs-flexisel-container {
+    position: relative;
+    max-width: 100%;
+    
+}
+.nbs-flexisel-ul {
+    position: relative;
+    width: 9999px;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    text-align: center;
+}
+
+.nbs-flexisel-inner {	
+    overflow: hidden;
+    margin-top:1em;
+}
+.nbs-flexisel-item {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    position: relative;
+    border:1px solid #fff;
+}
+ul#flexiselDemo1 li a{
+    text-decoration:none;
+    display:block;
+}
+ul#flexiselDemo1 li a h4{
+    text-align: left;
+    padding-left: 14px;
+    color:#478D06;
+    font-family: 'Exo2-Medium';
+    font-size:1.2em;
+    margin-top:0.5em;
+}
+ul#flexiselDemo1 li a h4:hover{
+    color: #DBC585;
+}
+
+.nbs-flexisel-item > a img {
+    cursor:auto;
+    position: relative;
+    width: 80%;
+    
+    margin: 0 5%;
+}
+.nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+    margin-top:0em;
+}
+.nbs-flexisel-nav-left {
+    left: -5px;
+    background: url(../img/img-sprite-left-right.png) no-repeat 0px 0px;
+}
+.nbs-flexisel-nav-right {
+    right: -5px;
+    background: url(../img/img-sprite-left-right.png) no-repeat -54px 0px;}
+
+

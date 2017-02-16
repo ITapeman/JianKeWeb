@@ -1,0 +1,60 @@
+package com.JianKe.action;
+
+import java.util.List;
+import java.util.Map;
+
+import com.JianKe.biz.MenuBiz;
+import com.JianKe.pojo.Menu;
+import com.JianKe.pojo.User;
+import com.opensymphony.xwork2.ActionContext;
+
+public class FriendAction {
+private int fid;
+
+public int getFid() {
+	return fid;
+}
+
+public void setFid(int fid) {
+	this.fid = fid;
+}
+
+private MenuBiz menuBiz=null;
+
+public String friendView(){
+Map<String, Object> session =ActionContext.getContext().getSession();
+	if (fid==0) {
+		User user=(User) session.get("currentUser");
+		fid=user.getUid();
+	}
+	
+	List<Menu> menuList =menuBiz.getIssue(getFid());
+	session.put("menuList", menuList);
+	return "success";
+}
+
+public String addfriend(){
+	Map<String, Object> session =ActionContext.getContext().getSession();
+	return null;
+	 
+	
+}
+
+
+
+public MenuBiz getMenuBiz() {
+	return menuBiz;
+}
+
+
+
+public void setMenuBiz(MenuBiz menuBiz) {
+	this.menuBiz = menuBiz;
+}
+
+
+
+
+
+
+}

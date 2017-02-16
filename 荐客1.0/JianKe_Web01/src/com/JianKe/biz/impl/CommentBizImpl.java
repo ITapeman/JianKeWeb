@@ -1,0 +1,45 @@
+package com.JianKe.biz.impl;
+
+import java.util.List;
+
+import com.JianKe.biz.CommentBiz;
+import com.JianKe.dao.ChallengeDAO;
+import com.JianKe.dao.CommentDAO;
+import com.JianKe.hibernate.util.ListUtil;
+import com.JianKe.pojo.Comment;
+
+public class CommentBizImpl implements CommentBiz{
+
+	private CommentDAO commentDAO;
+	private ChallengeDAO challengeDAO;
+	
+	public void setCommentDAO(CommentDAO commentDAO) {
+		this.commentDAO = commentDAO;
+	}
+
+
+
+	//评论者根据cid删除自己的评价
+	public void delComment(int cid) {
+		commentDAO.del(commentDAO.get(cid));
+	}
+
+	//添加评价
+	public void addComment(Comment comment) {
+		commentDAO.save(comment);
+	}
+
+
+
+	public List<Comment> getCommentByCid(int cid) {
+		return  commentDAO.getCommentByCid(cid);
+	}
+
+
+
+	public List<Comment> getAllComment() {
+		return commentDAO.getAll();
+	}
+	
+
+}
